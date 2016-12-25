@@ -48,8 +48,10 @@ Plug 'tpope/vim-fugitive' " Git wrapper
 " ------------------------------------------------------------------
 Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
+" ------------------------------------------------------------------
+Plug 'powerline/powerline'
+let g:powerline_symbols = 'fancy'
 
-" Plug 'SirVer/ultisnips'
 " ------------------------------------------------------------------
 Plug 'SirVer/ultisnips'
 "set rtp+="D:\\WindowsVim\\vim.plug.runtime\\my_snippets"
