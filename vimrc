@@ -37,7 +37,6 @@ call plug#begin(s:PLUG_PATH)
 
 " My Bundles here:
 " ----------------
-Plug 'taglist.vim'
 Plug 'a.vim'
 Plug 'molokai'
 Plug 'The-NERD-tree'
@@ -173,7 +172,7 @@ if has("win32") || has("win64")
     let g:Tlist_Ctags_Cmd=$VIM . '/tools/ctags58/ctags.exe'
     let $CTAGS=g:Tlist_Ctags_Cmd
 elseif system('uname')=~'Darwin'
-    let g:Tlist_Ctags_Cmd='/usr/bin/ctags'   " brew install ctags
+    let g:Tlist_Ctags_Cmd='/usr/local/bin/ctags'   " brew install ctags
     let $CTAGS=g:Tlist_Ctags_Cmd
 endif
 
