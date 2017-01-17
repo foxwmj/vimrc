@@ -247,5 +247,21 @@ endif
 "=========================
 " auto command
 "
-au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif 
+au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/*,*.nginx if &ft == '' | setfiletype nginx | endif 
+
+
+
+"=====================================
+"Filetype Specific Funciton 
+"=====================================
+function! Nginx_F12()
+    if filereadable("/usr/local/nginx/conf/nginx.conf")
+         map <F12> <Esc>:edit /usr/local/nginx/conf/nginx.conf<CR>
+    elseif filereadable("/etc/nginx/nginx.conf")
+         map <F12> <Esc>:edit /etc/nginx/nginx.conf<CR>
+    elseif filereadable("/usr/local/etc/nginx/nginx.conf")
+         map <F12> <Esc>:edit /usr/local/etc/nginx/nginx.conf<CR>
+    endif
+endfunction
+au Filetype nginx  call Nginx_F12()
 
