@@ -37,6 +37,9 @@ map <C-F8> <Esc>:v/\(<c-r>=expand("<cword>")<cr>\)/d
 map <S-F6> <Esc>:vimgrep /\(<c-r>/\)/ <c-r>=expand("%")<cr>
 map <S-F8> <Esc>:vimgrep /\(<c-r>=expand("<cword>")<cr>\)/ <c-r>=expand("%")<cr>
 
+" Sudo Edit
+command SUDO w !sudo tee % >/dev/null
+
 
 " Searching
 "-------------------
