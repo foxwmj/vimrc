@@ -8,13 +8,13 @@ endsnippet
 snippet server
 server {
     # Server configuration
-    listen                  ${1:127.0.0.1:80}
-    server_name             ${2:www.a.com www.b.com}
+    listen                  ${1:127.0.0.1:80;}
+    server_name             ${2:www.a.com www.b.com;}
+    access_log              ${3:/data/wwwlogs/access_default.log combined;}
 
-    location${3}
-
-    location${4}
+    location${0}
 }
+$0
 endsnippet
 
 
@@ -25,16 +25,21 @@ location ${1:/some/path/} {
 endsnippet
 
 
-snippet location_start
+snippet los "location_start"
 location ${1:/some/path/} {
     ${0}
 }
 endsnippet
 
 
-snippet location_any_pos
+snippet loa "location_any_pos"
 location ~ ${1:/some/path/} {
     ${0}
 }
+endsnippet
+
+
+snippet proxy "proxy pass"
+proxy_pass ${1:http://127.0.0.1:9000};
 endsnippet
 
