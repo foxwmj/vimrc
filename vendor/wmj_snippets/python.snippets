@@ -1,10 +1,4 @@
-# quick sample
-snippet snip_name "comment" option
-
-endsnippet
-
-# quick sample
-snippet ifmain 
+snippet main "main py proj"
 def main():
     ${0}
     pass
@@ -14,7 +8,6 @@ if __name__ == "__main__":
 endsnippet
 
 
-# quick sample
 snippet pr "print3"
 print(${1:"Hello World!"}${2:})${0}
 endsnippet
@@ -28,3 +21,26 @@ endsnippet
 snippet cout
 with open(${1:"out.csv"}, "w") as cout:
 endsnippet
+
+
+snippet main_flask "flask init proj"
+#!flask/bin/python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    ${0:return "Hello, World!"}
+
+if __name__ == '__main__':
+	app.run(debug=True)
+endsnippet
+
+
+snippet def_flask "Flask def route def"
+@app.route('/${1:todo}/<int:${2:task_id}>', methods=[${4:'GET'}])
+def ${3:get_task}($2):
+    return ${0:"hello world"}
+endsnippet
+
