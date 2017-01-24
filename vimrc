@@ -1,5 +1,5 @@
 set nocompatible
-set t_Co=256                " Color number
+"set t_Co=256                " Color number
 
 if has('win32') || has('win64')
     let s:PATH_DIVISOR = "\\"
