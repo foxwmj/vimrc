@@ -38,9 +38,17 @@ if __name__ == '__main__':
 endsnippet
 
 
-snippet def_flask "Flask def route def"
+snippet route_flask "Flask def route def"
 @app.route('/${1:todo}/<int:${2:task_id}>', methods=[${4:'GET'}])
 def ${3:get_task}($2):
     return ${0:"hello world"}
 endsnippet
 
+
+snippet err_flask "Flask error handle"
+from flask import make_response
+
+@app.errorhandler(${1:404})
+def ${2:not_found_404}(${3:error}):
+    return make_response(jsonify({'error': 'Not found'}), 404)
+endsnippet
