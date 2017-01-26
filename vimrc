@@ -119,14 +119,18 @@ let g:UltiSnipsListSnippets = "<c-tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+"let g:ycm_key_invoke_completion = '<leader><space>'
 "" turn on tag completion
-let g:ycm_collect_identifiers_from_tags_files=1
+let g:ycm_collect_identifiers_from_tags_files=0
 "" start completion from the first character
-let g:ycm_min_num_of_chars_for_completion=2
+let g:ycm_min_num_of_chars_for_completion=1
+let g:ycm_min_num_identifier_candidate_chars = 2
 "" don't cache completion items
 let g:ycm_cache_omnifunc=0
 "" complete syntax keywords
 let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 " ------------------------------------------------------------------
 
 " All of your Plugins must be added before the following line
