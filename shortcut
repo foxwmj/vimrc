@@ -25,14 +25,18 @@ nnoremap <F11> :e ++enc=utf-8<CR>
 
 " FuzzyFinder
 "-------------------
-map <silent> <C-k>b :FufBuffer<CR>
-map <silent> <C-k>f :FufCoverageFile<CR>
-map <silent> <C-k>m :FufTag<CR>
-map <silent> <c-k>n :FufTagWithCursorWord<CR>
-map <silent> <C-k>. :FufBufferTag<CR>
-map <silent> <C-k>p :call Py()<CR>
-map <silent> <C-k>t :call SearchTC()<CR>
-
+function! FufWrapper(cmd)
+    NERDTreeClose
+    exec a:cmd 
+endfunction
+map <silent> <C-k>b :call FufWrapper("FufBuffer")<CR>
+map <silent> <C-k>d :call FufWrapper("FufDir")<CR>
+map <silent> <C-k>f :call FufWrapper("FufCoverageFile")<CR>
+map <silent> <C-k>m :call FufWrapper("FufTag")<CR>
+map <silent> <c-k>c :call FufWrapper("FufTagWithCursorWord")<CR>
+map <silent> <c-k>n :call FufWrapper("FufTagWithCursorWord")<CR>
+map <silent> <C-k>. :call FufWrapper("FufBufferTag")<CR>
+map <silent> <C-k><C-k> :call FufWrapper("FufBufferTag")<CR>
 
 " Fast search
 "-------------------
