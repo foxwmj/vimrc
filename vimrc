@@ -39,10 +39,14 @@ call plug#begin(s:PLUG_PATH)
 " ----------------
 Plug 'a.vim'
 Plug 'molokai'
-Plug 'The-NERD-tree'
 Plug 'L9'
 Plug 'FuzzyFinder'
 Plug 'Tagbar'             " browse the tags of the current file and get an overview of its structure
+
+" ------------------------------------------------------------------
+Plug 'The-NERD-tree'
+let NERDTreeShowHidden=1
+
 " ------------------------------------------------------------------
 Plug 'tpope/vim-fugitive' " Git wrapper
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
