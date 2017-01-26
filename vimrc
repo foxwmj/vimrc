@@ -57,6 +57,9 @@ Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if 
 " ------------------------------------------------------------------
 Plug 'aert/vim-powerline' " Lokaltod/vim-powerline fail. 
 let g:powerline_symbols = 'fancy'
+"let g:Powerline_theme = 'solarized256'
+let g:Powerline_colorscheme = 'solarized256'
+set laststatus=2   " Always show the statusline
 
 " ------------------------------------------------------------------
 Plug 'SirVer/ultisnips'
@@ -98,7 +101,7 @@ function! YCM()
 endfunction
 command! Y call YCM()
 command! YCM call YCM()
-map <leader>h <Esc>:YcmCompleter GetDoc<CR>
+map <leader>d <Esc>:YcmCompleter GetDoc<CR>
 map <leader>g <Esc>:YcmCompleter GoTo<CR>
 map <leader>gg <Esc>:YcmCompleter GoToImprecise<CR>
 map <leader>r <Esc>:YcmCompleter GoToReferences<CR>
