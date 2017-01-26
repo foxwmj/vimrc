@@ -93,9 +93,8 @@ function! YCM()
         call youcompleteme#Enable()
     endif
 endfunction
-if !exists(":YCM")
-    command YCM call YCM()
-endif
+command! Y call YCM()
+command! YCM call YCM()
 " ------------------------------
 " http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
 " ------------------------------
