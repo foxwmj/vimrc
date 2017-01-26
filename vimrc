@@ -74,9 +74,20 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips","wmj_snippets"]
 function! EditFtSnippet()
     let s:WORKING_FT_SNIPPET = s:VENDOR_PATH . s:PATH_DIVISOR . "wmj_snippets" . s:PATH_DIVISOR . &filetype . ".snippets"
     exec "vsplit " . s:WORKING_FT_SNIPPET
-    "autocmd Buf
+endfunction
+function! ViewSnipSnippet()
+    let s:SNIP_PATH_U = s:PLUG_PATH. s:PATH_DIVISOR . "vim-snippets" . s:PATH_DIVISOR . "UltiSnips" . s:PATH_DIVISOR . &filetype . ".snippets"
+    let s:SNIP_PATH_S = s:PLUG_PATH. s:PATH_DIVISOR . "vim-snippets" . s:PATH_DIVISOR . "snippets" . s:PATH_DIVISOR . &filetype . ".snippets"
+    if filereadable(s:SNIP_PATH_U)
+        exec "vsplit | view " . s:SNIP_PATH_U
+    endif
+    if filereadable(s:SNIP_PATH_S)
+        exec "split | view " . s:SNIP_PATH_S
+    endif
+
 endfunction
 command! FT call EditFtSnippet()
+command! FTA call ViewSnipSnippet()
 " ------------------------------------------------------------------
 
 
@@ -203,6 +214,7 @@ set autoindent
 set incsearch
 set hlsearch
 set ignorecase
+set nowrap
 
 
 " Ctags
