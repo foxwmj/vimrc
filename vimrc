@@ -46,6 +46,7 @@ Plug 'Tagbar'             " browse the tags of the current file and get an overv
 " ------------------------------------------------------------------
 Plug 'The-NERD-tree'
 let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['pyc$', '\~$']
 
 " ------------------------------------------------------------------
 Plug 'tpope/vim-fugitive' " Git wrapper
@@ -72,9 +73,7 @@ function! EditFtSnippet()
     exec "vsplit " . s:WORKING_FT_SNIPPET
     "autocmd Buf
 endfunction
-if !exists(":FT")
-    command FT call EditFtSnippet()
-endif
+command! FT call EditFtSnippet()
 " ------------------------------------------------------------------
 
 
@@ -99,6 +98,11 @@ function! YCM()
 endfunction
 command! Y call YCM()
 command! YCM call YCM()
+map <leader>h <Esc>:YcmCompleter GetDoc<CR>
+map <leader>g <Esc>:YcmCompleter GoTo<CR>
+map <leader>gg <Esc>:YcmCompleter GoToImprecise<CR>
+map <leader>r <Esc>:YcmCompleter GoToReferences<CR>
+
 " ------------------------------
 " http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
 " ------------------------------
