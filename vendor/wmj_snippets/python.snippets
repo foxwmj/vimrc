@@ -56,7 +56,6 @@ endsnippet
 
 snippet sql_flask
 from flask_sqlalchemy import SQLAlchemy
-
 ${2:#app = Flask(__name__)}
 app.config['SQLALCHEMY_DATABASE_URI'] = "${1:mysql://mj:123456@localhost/mj_dev}"
 db = SQLAlchemy(app)
@@ -93,4 +92,28 @@ endsnippet
 snippet sql_create_all_table_only_once+
 def createAllTable_only_once():
     db.create_all()
+endsnippet
+
+snippet rest_flask  
+${0:#from flask_restful import Resource, Api
+#app = Flask(__name__)
+#api = Api(app }
+#==================================================================
+# Restful API $1
+#==================================================================
+
+def ${1:Task}RS(Resource):
+    def get(self${2/^\/<(.+:)?(.+)>$/, $2/}):
+        pass
+${3:
+    def post(self${2/^\/<(.+:)?(.+)>$/, $2/}):
+        pass
+
+    def put(self${2/^\/<(.+:)?(.+)>$/, $2/}):
+        pass
+
+    def delete(self${2/^\/<(.+:)?(.+)>$/, $2/}):
+        pass
+}
+api.add_resource($1RS, "/${1/.*/\L$0\E/}${2:/<path:var_name>}")
 endsnippet
