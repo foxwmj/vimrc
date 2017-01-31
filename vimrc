@@ -42,6 +42,7 @@ Plug 'molokai'
 Plug 'L9'
 Plug 'FuzzyFinder'
 Plug 'Tagbar'             " browse the tags of the current file and get an overview of its structure
+Plug 'pangloss/vim-javascript'
 
 " ------------------------------------------------------------------
 Plug 'The-NERD-tree'

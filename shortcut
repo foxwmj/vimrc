@@ -58,3 +58,11 @@ command! SUDO w !sudo tee % >/dev/null
 map * *``
 map # #``
 
+" Filetype
+"-------------------
+command! FTH :set filetype=html
+command! FTJ :set filetype=javascript
+command! FTC :set filetype=css
+command! FTHJ :set filetype=html.javascript
+command! FTJH :set filetype=javascript.html
+command! FTHJC :set filetype=html.javascript.css

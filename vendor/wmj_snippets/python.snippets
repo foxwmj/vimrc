@@ -52,3 +52,45 @@ from flask import make_response
 def ${2:not_found_404}(${3:error}):
     return make_response(jsonify({'error': 'Not found'}), 404)
 endsnippet
+
+
+snippet sql_flask
+from flask_sqlalchemy import SQLAlchemy
+
+${2:#app = Flask(__name__)}
+app.config['SQLALCHEMY_DATABASE_URI'] = "${1:mysql://mj:123456@localhost/mj_dev}"
+db = SQLAlchemy(app)
+
+sql_model+${3}
+
+sql_create_all_table_only_once+${4}
+endsnippet
+
+
+snippet sql_model+ 
+#==================================================================
+# MODEL $1
+#==================================================================
+class ${1:TaskModel}(db.Model):
+    ${2:name} = db.Column(db.${3:Integer}${4:, primary_key=True})
+    ${5:op} = db.Column(db.${6:Integer|String(10)|Text|Float|Boolean|DateTime|PickleType|LargeBinary})
+    sql_col+${0}
+
+    def __init__(self, $2, $5):
+        self.$2 = $2
+        self.$5 = $5
+
+    def __repr__(self):
+        print( "<$1> $2:{}".format(self.$2) )
+endsnippet
+
+
+snippet sql_col+
+${1:item} = db.Column(db.${2:Integer|String(10)|Text|Float|Boolean|DateTime|PickleType|LargeBinary})
+sql_col+${0}
+endsnippet
+
+snippet sql_create_all_table_only_once+
+def createAllTable_only_once():
+    db.create_all()
+endsnippet
