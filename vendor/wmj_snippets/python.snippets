@@ -97,7 +97,7 @@ endsnippet
 snippet rest_flask  
 ${0:#from flask_restful import Resource, Api
 #app = Flask(__name__)
-#api = Api(app }
+#api = Api(app) }
 #==================================================================
 # Restful API $1
 #==================================================================
@@ -116,4 +116,69 @@ ${3:
         pass
 }
 api.add_resource($1RS, "/${1/.*/\L$0\E/}${2:/<path:var_name>}")
+endsnippet
+
+
+
+snippet schema_flask "Marshmellow" 
+
+#==================================================================
+# Schema $1
+#==================================================================
+class SM_${1:SchemaName}
+	id = fields.Int(dump_only=True)
+	name = fields.Str()
+${0:
+	sm_new__field_flask+
+	sm_new_int_flask+
+	sm_new_str_flask+
+	sm_new_float_flask+
+	sm_new_date_flask+
+	sm_new_time_flask+
+	sm_new_method_flask+
+}
+endsnippet
+
+snippet sm_new__field_flask+ 
+${1:name} = fields.${2:Int|Str|Float|Date|Time|Function}()
+sm_new__field_flask+${0}
+endsnippet
+
+snippet sm_new_int_flask+
+${1:name} = fields.Int(as_string=${2:False})
+${0}
+endsnippet
+
+snippet sm_new_str_flask+
+${1:name} = fields.Str()
+${0}
+endsnippet
+
+snippet sm_new_float_flask+
+${1:name} = fields.Float(as_string=${2:False})
+${0}
+endsnippet
+
+
+snippet sm_new_date_flask+
+${1:name} = fields.Date()
+${0}
+endsnippet
+
+snippet sm_new_time_flask+
+${1:name} = fields.Time()
+${0}
+endsnippet
+
+snippet sm_new_method_flask+
+${1:name} = fields.Method("${2:method_name}")
+
+def $2(self, obj):
+    return ${3:"{}:{}".format(obj.one, obj.two)}
+${0}
+endsnippet
+
+snippet sm_new_function_flask+
+${1:name} = fields.Function(lambda obj: ${2:len(obj.word)})
+${0}
 endsnippet
