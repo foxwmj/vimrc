@@ -122,12 +122,13 @@ endsnippet
 
 snippet schema_flask "Marshmellow" 
 
+from marshmallow import Schema, fields
 #==================================================================
 # Schema $1
 #==================================================================
-class SM_${1:SchemaName}
-	id = fields.Int(dump_only=True)
-	name = fields.Str()
+class SM_${1:SchemaName}(Schema):
+	$2
+
 ${0:
 	sm_new__field_flask+
 	sm_new_int_flask+
@@ -135,12 +136,13 @@ ${0:
 	sm_new_float_flask+
 	sm_new_date_flask+
 	sm_new_time_flask+
+	sm_new_function_flask+
 	sm_new_method_flask+
 }
 endsnippet
 
 snippet sm_new__field_flask+ 
-${1:name} = fields.${2:Int|Str|Float|Date|Time|Function}()
+${2:name} = fields.${1:Int|Str|Float|Date|Time|Function}()
 sm_new__field_flask+${0}
 endsnippet
 
